@@ -1,0 +1,15 @@
+# Python code to illustrate Sending mail 
+# to multiple users 
+# from your Gmail account 
+import smtplib 
+
+# list of email_id to send the mail 
+li = ["mail1@mail.com", "mail2@mail.com", "mail3@mail.com"] 
+
+for i in range(len(li)): 
+	s = smtplib.SMTP('smtp.gmail.com', 587) 
+	s.starttls() 
+	s.login("mail@mail.com", "mailpassword") 
+	message = "Send a mail through python "
+	s.sendmail("mail1@mail.com", li[i], message) 
+	s.quit() 
